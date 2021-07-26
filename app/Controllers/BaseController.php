@@ -7,6 +7,7 @@ use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use App\Libraries\Etc;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -56,6 +57,7 @@ class BaseController extends Controller
 		// E.g.: $this->session = \Config\Services::session();
 		$this->session = \Config\Services::session();
 		$this->db = \Config\Database::connect();
+		$this->etc = new Etc();
 
 		$this->tutor = model('\App\Models\Tutor');
 	}

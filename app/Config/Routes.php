@@ -32,11 +32,17 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('form-cv', "Cv::formCv");
+$routes->get('/', 'Dashboard::index');
+$routes->get('form-cv', "Cv::formCv", ['filter'=> 'auth']);
+$routes->get('cv-saya', "Cv::index", ['filter'=> 'auth']);
 $routes->get('detail-akun', 'Cv::getInfo');
 $routes->post('update-education', 'Cv::setEducation');
 $routes->post('update-project', 'Cv::setProject');
+$routes->post('update-skills', 'Cv::setSkills');
+$routes->post('update-personal-info', 'Cv::setPersonalInfo');
+$routes->get('login', "Login::index");
+$routes->get('logout', "Login::logout");
+$routes->post('login-proc', "Login::loginProses");
 
 /*
  * --------------------------------------------------------------------
